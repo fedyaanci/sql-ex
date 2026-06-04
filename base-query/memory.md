@@ -1,7 +1,8 @@
-Базовые запросы SQL.
+### Базовые запросы SQL.
 
-Порядок выполнения отличается от того, в какой последовательности указываются: FROM, SELECT, ORDER BY, LIMIT 
+##### Порядок выполнения отличается от того, в какой последовательности указываются: FROM, SELECT, ORDER BY, LIMIT 
 
+```sql
 CREATE TABLE employees
 (
     id INTEGER PRIMARY KEY,
@@ -24,3 +25,4 @@ SELECT
 FROM employees
 ORDER BY total_income desc
 LIMIT 3
+```
