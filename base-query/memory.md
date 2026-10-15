@@ -26,3 +26,27 @@ FROM employees
 ORDER BY total_income desc
 LIMIT 3
 ```
+
+ Такой момент увидел, что если у нас присутсвуют индексы по каким-то колонкам, то операция = не приемлема, лучше использовать >= и если тип колонки about date, то используем INTERVAL
+
+приведение типа NULL даёт NULL, а не текст 'NULL'
+
+COALESCE — это как раз инструмент «поймать» NULL и подставить заглушку. 
+
+CASE
+
+```sql
+-- 1) Простая: только проверка на равенство
+CASE status
+    WHEN 'completed' THEN 'Завершён'
+    WHEN 'cancelled' THEN 'Отменён'
+    ELSE 'В работе'
+END
+
+-- 2) Поисковая: любые условия
+CASE
+    WHEN total >= 100000 THEN 'VIP'
+    WHEN total >= 10000  THEN 'Крупный'
+    ELSE 'Обычный'
+END
+```
